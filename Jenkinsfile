@@ -4,6 +4,7 @@ pipeline {
     stage('step1') {
       steps {
         echo 'start'
+		env.imageTag = sh (script: 'git rev-parse --short HEAD ${GIT_COMMIT}', returnStdout: true).trim()
       }
     }
 
